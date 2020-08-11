@@ -1,0 +1,74 @@
+<div class="main-content">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="card">
+          <div class="card-header card-header-primary card-header-icon">
+            <div class="card-icon">
+              <i class="material-icons">people_alt</i>
+            </div>
+            <h4 class="card-title float-left">customers</h4>
+            <button mat-raised-button class="float-right" color="primary" style="margin-top: 10px;"
+              (click)="addDialog()">
+              Add
+            </button>
+          </div>
+          <div class="card-body">
+            <table datatable [dtOptions]="dtOptions" [dtTrigger]="dtTrigger" class="row-border hover" width="100%">
+              <thead>
+                <tr>
+                 <td>Customernumber</td>
+<td>Customername</td>
+<td>Contactlastname</td>
+<td>Contactfirstname</td>
+<td>Phone</td>
+<td>Addressline1</td>
+<td>Addressline2</td>
+<td>City</td>
+<td>State</td>
+<td>Postalcode</td>
+<td>Country</td>
+<td>Salesrepemployeenumber</td>
+<td>Creditlimit</td>
+<td>Desc</td>
+
+                  <th class="text-right" data-orderable="false" data-priority="2">Actions</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let dto1 of dtos">
+                
+
+                   <td>{{dto1['customerNumber']}}</td>
+ <td>{{dto1['customerName']}}</td>
+ <td>{{dto1['contactLastName']}}</td>
+ <td>{{dto1['contactFirstName']}}</td>
+ <td>{{dto1['phone']}}</td>
+ <td>{{dto1['addressLine1']}}</td>
+ <td>{{dto1['addressLine2']}}</td>
+ <td>{{dto1['city']}}</td>
+ <td>{{dto1['state']}}</td>
+ <td>{{dto1['postalCode']}}</td>
+ <td>{{dto1['country']}}</td>
+ <td>{{dto1['salesRepEmployeeNumber']}}</td>
+ <td>{{dto1['creditLimit']}}</td>
+ <td>{{dto1['desc']}}</td>
+
+                  <td class="text-right">
+                    <a href="javascript:void(0)" (click)="editDialog(dto1)"
+                      class="btn btn-link btn-warning btn-just-icon edit">
+                      <i class="material-icons">dvr</i>
+                    </a>
+                    <a href="javascript:void(0)" (click)="deleteDialog(dto1)"
+                      class="btn btn-link btn-danger btn-just-icon remove">
+                      <i class="material-icons">close</i>
+                    </a>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>

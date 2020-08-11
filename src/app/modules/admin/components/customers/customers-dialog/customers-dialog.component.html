@@ -1,0 +1,165 @@
+<h1 mat-dialog-title>customers</h1>
+<div mat-dialog-content>
+    <form fxLayout="column" #customersForm="ngForm">
+        <mat-tab-group mat-align-tabs="start">
+ <mat-tab label="Tab 1">
+<div fxLayout="row wrap" fxLayoutGap="30px">
+            <div fxLayout="row wrap" fxLayoutGap="30px">
+           <mat-form-field fxFlex> 
+                <input matInput placeholder="Customernumber" type="number" name="customerNumber"[(ngModel)]="customersObj.customerNumber"
+#customerNumber="ngModel"  required   >
+               <mat-error *ngIf="customerNumber.hasError('required')">
+                    Please enter the value..
+                </mat-error>
+            </mat-form-field>
+      
+</div>
+ <div fxLayout="row wrap" fxLayoutGap="30px">
+           <mat-form-field fxFlex>
+                <input matInput placeholder="Customername" name="customerName"[(ngModel)]="customersObj.customerName"
+#customerName="ngModel"  required  >
+            <mat-error *ngIf="customerName.hasError('required')">
+                    Please enter the value..
+                </mat-error>
+            </mat-form-field>
+      
+</div>
+ <div fxLayout="row wrap" fxLayoutGap="30px">
+           <mat-form-field fxFlex>
+                <input matInput placeholder="Contactlastname" name="contactLastName"[(ngModel)]="customersObj.contactLastName"
+#contactLastName="ngModel"  required  >
+            <mat-error *ngIf="contactLastName.hasError('required')">
+                    Please enter the value..
+                </mat-error>
+            </mat-form-field>
+      
+</div>
+ <div fxLayout="row wrap" fxLayoutGap="30px">
+           <mat-form-field fxFlex>
+                <input matInput placeholder="Contactfirstname" name="contactFirstName"[(ngModel)]="customersObj.contactFirstName"
+#contactFirstName="ngModel"  required  >
+            <mat-error *ngIf="contactFirstName.hasError('required')">
+                    Please enter the value..
+                </mat-error>
+            </mat-form-field>
+      
+</div>
+ <div fxLayout="row wrap" fxLayoutGap="30px">
+           <mat-form-field fxFlex>
+                <input matInput placeholder="Phone" name="phone"[(ngModel)]="customersObj.phone"
+#phone="ngModel"  required  >
+            <mat-error *ngIf="phone.hasError('required')">
+                    Please enter the value..
+                </mat-error>
+            </mat-form-field>
+      
+</div>
+ <div fxLayout="row wrap" fxLayoutGap="30px">
+           <mat-form-field fxFlex>
+                <input matInput placeholder="Addressline1" name="addressLine1"[(ngModel)]="customersObj.addressLine1"
+#addressLine1="ngModel"  required  >
+            <mat-error *ngIf="addressLine1.hasError('required')">
+                    Please enter the value..
+                </mat-error>
+            </mat-form-field>
+      
+</div>
+ <div fxLayout="row wrap" fxLayoutGap="30px">
+           <mat-form-field fxFlex>
+                <input matInput placeholder="Addressline2" name="addressLine2"[(ngModel)]="customersObj.addressLine2"
+#addressLine2="ngModel"  >
+            
+            </mat-form-field>
+      
+</div>
+
+</div>
+      </mat-tab>
+
+
+ <mat-tab label="Tab 2">
+<div fxLayout="row wrap" fxLayoutGap="30px">
+            <div fxLayout="row wrap" fxLayoutGap="30px">
+           <mat-form-field fxFlex>
+                <input matInput placeholder="City" name="city"[(ngModel)]="customersObj.city"
+#city="ngModel"  required  >
+            <mat-error *ngIf="city.hasError('required')">
+                    Please enter the value..
+                </mat-error>
+            </mat-form-field>
+      
+</div>
+ <div fxLayout="row wrap" fxLayoutGap="30px">
+           <mat-form-field fxFlex>
+                <input matInput placeholder="State" name="state"[(ngModel)]="customersObj.state"
+#state="ngModel"  >
+            
+            </mat-form-field>
+      
+</div>
+ <div fxLayout="row wrap" fxLayoutGap="30px">
+           <mat-form-field fxFlex>
+                <input matInput placeholder="Postalcode" name="postalCode"[(ngModel)]="customersObj.postalCode"
+#postalCode="ngModel"  >
+            
+            </mat-form-field>
+      
+</div>
+ <div fxLayout="row wrap" fxLayoutGap="30px">
+           <mat-form-field fxFlex>
+                <input matInput placeholder="Country" name="country"[(ngModel)]="customersObj.country"
+#country="ngModel"  required  >
+            <mat-error *ngIf="country.hasError('required')">
+                    Please enter the value..
+                </mat-error>
+            </mat-form-field>
+      
+</div>
+ <div fxLayout="row wrap" fxLayoutGap="30px">
+             <mat-form-field fxFlex>
+                <mat-label>Salesrepemployeenumber</mat-label>
+                <mat-select [(ngModel)]="customersObj.salesRepEmployeeNumber" name="salesRepEmployeeNumber" #salesRepEmployeeNumber="ngModel">
+                    <mat-option *ngFor = "let _salesRepEmployeeNumber of  salesRepEmployeeNumberList" [value] = "_salesRepEmployeeNumber.employeeNumber" >
+                        {{_salesRepEmployeeNumber.lastName}}
+                    </mat-option>
+                </mat-select>
+               
+            </mat-form-field>
+      
+</div>
+ <div fxLayout="row wrap" fxLayoutGap="30px">
+           <mat-form-field fxFlex> 
+                <input matInput placeholder="Creditlimit" type="number" name="creditLimit"[(ngModel)]="customersObj.creditLimit"
+#creditLimit="ngModel"   >
+               
+            </mat-form-field>
+      
+</div>
+ <div fxLayout="row wrap" fxLayoutGap="30px">
+           <mat-form-field fxFlex>
+                <input matInput placeholder="Desc" name="desc"[(ngModel)]="customersObj.desc"
+#desc="ngModel"  >
+            
+            </mat-form-field>
+      
+</div>
+
+</div>
+      </mat-tab>
+
+
+
+</mat-tab-group>
+
+    </form>
+</div>
+
+<div mat-dialog-actions>
+    <div fxLayout="row wrap" fxFlex fxLayoutGap="10px" fxLayoutAlign="end start">
+        <button mat-button mat-dialog-close tabindex="-1" cdkFocusInitial>Cancel</button>
+        <button mat-raised-button color="primary" [disabled]="!customersForm.valid || !customersForm.dirty"
+            (click)="savecustomers(customersObj)">
+            Add/Update
+        </button>
+    </div>
+</div>
